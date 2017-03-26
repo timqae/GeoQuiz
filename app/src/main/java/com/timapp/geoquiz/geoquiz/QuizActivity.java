@@ -17,7 +17,7 @@ public class QuizActivity extends AppCompatActivity {
     private Question[] mQuestionBank = new Question[]{
             new Question(R.string.question_oceans, true),
             new Question(R.string.question_mideast, false),
-            new Question(R.string.question_africa, false)
+            new Question(R.string.question_africa, false),
             new Question(R.string.question_americas, true),
             new Question(R.string.question_asia, true),
     };
@@ -27,6 +27,10 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
+        int question = mQuestionBank[mCurrentIndex].getTextResID();
+        mQuestionTextView.setText(question);
 
         mTrueButton = (Button) findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
